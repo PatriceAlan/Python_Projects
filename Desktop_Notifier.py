@@ -1,6 +1,13 @@
 from plyer import notification
 
-title = "Hey there it's Alan"
-message = "Y'all are amazing !!!"
+print("Enter the title of the message : ")
+title = input("-> ")
 
-notification.notify(title=title, message=message, app_icon=None, timeout=60, toast=False)
+print("Enter the message : ")
+message = input("-> ")
+
+# title = "THE TITLE"
+# message = "A PROGRAM TO SEND NOTIFICATIONS"
+
+if __name__ == "__main__":
+    notification.notify(title=title, message=message, app_icon='', timeout=60, toast=False)
