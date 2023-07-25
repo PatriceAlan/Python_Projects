@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>scrabble.scrabble API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>scrabble.scrabble</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># Importing the necessary modules for the program
+import random
+from art import text2art
+
+FRENCH_WORD_LIST: str = &#39;french_word_list.txt&#39;
+
+
+def game_message():
+    &#34;&#34;&#34;Display the game message in ASCII art.&#34;&#34;&#34;
+    ascii_art = text2art(&#34;SCRABBLE&#34;)
+    print(ascii_art)
+    ascii_art = text2art(&#34;Le Jeu&#34;, font=&#34;block&#34;, chr_ignore=True)
+    print(ascii_art)
+
+
+def show_words_scrabble():
+    &#34;&#34;&#34;Sort and return the allowed words in Scrabble from a word list file.
+
+    Returns:
+        dict: A dictionary containing the allowed words in Scrabble.
+    &#34;&#34;&#34;
+    with open(FRENCH_WORD_LIST, &#34;r&#34;) as file:
+        allowed_words_in_scrabble = {}
+        for line in file:
+            word = line.strip()
+            if len(word) &lt; 9:
+                allowed_words_in_scrabble[word] = True
+    return allowed_words_in_scrabble
+
+
+def scrabble_letters_generator():
+    &#34;&#34;&#34;Generate the number of occurrences of letters in Scrabble.
+
+    Returns:
+        str: A string containing all the letters in Scrabble.
+    &#34;&#34;&#34;
+    letters_occurrences = {
+        &#34;A&#34;: 9, &#34;B&#34;: 2, &#34;C&#34;: 2, &#34;D&#34;: 3, &#34;E&#34;: 15, &#34;F&#34;: 2, &#34;G&#34;: 2, &#34;H&#34;: 2,
+        &#34;I&#34;: 8, &#34;J&#34;: 1, &#34;K&#34;: 1, &#34;L&#34;: 5, &#34;M&#34;: 3, &#34;N&#34;: 6, &#34;O&#34;: 6, &#34;P&#34;: 2,
+        &#34;Q&#34;: 1, &#34;R&#34;: 6, &#34;S&#34;: 6, &#34;T&#34;: 6, &#34;U&#34;: 6, &#34;V&#34;: 2, &#34;W&#34;: 1, &#34;X&#34;: 1,
+        &#34;Y&#34;: 1, &#34;Z&#34;: 1
+    }
+    scrabble_letters = &#34;&#34;
+    for letter, letter_value in letters_occurrences.items():
+        for _ in range(letter_value):
+            scrabble_letters += letter
+    return scrabble_letters
+
+
+def play_game(player=None):
+    &#34;&#34;&#34;Start the game by asking the number of players, their usernames, number of drafts, and letter options.
+
+    Args:
+        player (str, optional): The username of the player. Defaults to None.
+
+    Returns:
+        tuple: A tuple containing the username, number of drafts, and letter option.
+    &#34;&#34;&#34;
+    if player is None:
+        print(&#34;Quel est votre nom: &#34;)
+        username = input(&#34;-&gt; &#34;)
+    else:
+        username = player
+
+    while True:
+        try:
+            print(f&#34;{username}, Combien de tirages (5 à 15):&#34;)
+            number_of_drafts = int(input(&#34;-&gt; &#34;))
+            if 5 &lt;= number_of_drafts &lt;= 15:
+                break
+            else:
+                print(&#34;Le nombre de tirages doit être compris entre 5 et 15. Réessayez.&#34;)
+        except ValueError:
+            print(&#34;Entrée invalide. Veuillez saisir un nombre entre 5 et 15.&#34;)
+
+    while True:
+        try:
+            print(&#34;Tirage à chaque fois de 8 lettres (Y/N) ?: &#34;)
+            total_drafts = input(&#34;-&gt; &#34;).upper()
+            if total_drafts == &#34;Y&#34; or total_drafts == &#34;N&#34;:
+                break
+            else:
+                print(&#34;Répondez par &#39;Y&#39; pour oui ou &#39;N&#39; pour non. Réessayez.&#34;)
+        except ValueError:
+            print(&#34;Entrée invalide. Veuillez saisir &#39;Y&#39; pour oui ou &#39;N&#39; pour non.&#34;)
+
+    if total_drafts == &#34;EXIT&#34;:
+        print(&#34;You have exited the game.&#34;)
+        return None
+
+    return username, number_of_drafts, total_drafts
+
+
+def calculate_points(player_word):
+    &#34;&#34;&#34;Calculate the number of points for a player&#39;s word.
+
+    Args:
+        player_word (str): The word submitted by the player.
+
+    Returns:
+        int: The number of points for the word.
+    &#34;&#34;&#34;
+    points_per_letter = {
+        &#34;a&#34;: 1, &#34;b&#34;: 3, &#34;c&#34;: 3, &#34;d&#34;: 2, &#34;e&#34;: 1, &#34;f&#34;: 4, &#34;g&#34;: 2, &#34;h&#34;: 4, &#34;i&#34;: 1, &#34;j&#34;: 8,
+        &#34;k&#34;: 10, &#34;l&#34;: 1, &#34;m&#34;: 2, &#34;n&#34;: 1, &#34;o&#34;: 1, &#34;p&#34;: 3, &#34;q&#34;: 8, &#34;r&#34;: 1, &#34;s&#34;: 1, &#34;t&#34;: 1,
+        &#34;u&#34;: 1, &#34;v&#34;: 4, &#34;w&#34;: 10, &#34;x&#34;: 10, &#34;y&#34;: 10, &#34;z&#34;: 10
+    }
+    score = 0
+    for letter in player_word:
+        score += points_per_letter.get(letter.lower(), 0)
+    return score
+
+
+def display_score(player, total_score):
+    &#34;&#34;&#34;Display the score of a player in ASCII art.
+
+    Args:
+        player (str): The name of the player.
+        total_score (int): The total score of the player.
+    &#34;&#34;&#34;
+    ascii_art = text2art(f&#34;Score de {player}:&#34;)
+    print(ascii_art)
+    ascii_art = text2art(str(total_score), font=&#34;block&#34;, chr_ignore=True)
+    print(ascii_art)
+
+
+def main():
+    &#34;&#34;&#34;Main function of the program.&#34;&#34;&#34;
+    game_message()
+
+    allowed_words_in_scrabble = show_words_scrabble()
+    print(&#34;Dictionnaire des mots autorisés de 8 lettres max:&#34;, len(allowed_words_in_scrabble))
+
+    scrabble_letters = scrabble_letters_generator()
+
+    print(&#34;Combien de joueurs vont jouer ? (1 ou plus)&#34;)
+    while True:
+        try:
+            num_players = int(input(&#34;-&gt; &#34;))
+            if num_players &gt;= 1:
+                break
+            else:
+                print(&#34;Veuillez saisir un nombre supérieur ou égal à 1.&#34;)
+        except ValueError:
+            print(&#34;Entrée invalide. Veuillez saisir un nombre.&#34;)
+
+    players = []
+    for i in range(num_players):
+        player = input(f&#34;Nom du joueur {i + 1}: &#34;)
+        players.append(player)
+
+    scores = {}
+
+    for player in players:
+        user_input = play_game(player)
+        if user_input is None:
+            return
+
+        username, number_of_drafts, total_drafts = user_input
+
+        total_score = 0
+        score = 0
+
+        if total_drafts == &#34;Y&#34;:
+            for _ in range(number_of_drafts):
+                available_letters = list(scrabble_letters)
+                drawn_letters = []
+
+                for _ in range(8):
+                    letter = random.choice(available_letters)
+                    drawn_letters.append(letter)
+                    available_letters.remove(letter)
+
+                scrabble_letters = &#34;&#34;.join(available_letters)
+                print(&#34;Voici votre tirage: &#34;, drawn_letters)
+                print(&#34;Votre Mot SVP ? :&#34;)
+                print(&#34;Vous pouvez quitter le jeu en insérant le mot: exit&#34;)
+                player_word = input(&#34;-&gt; &#34;).upper()
+
+                if player_word == &#34;EXIT&#34;:
+                    exit_message = text2art(&#34;Vous avez mis fin au jeu.&#34;)
+                    print(exit_message)
+                    break
+
+                available_letters = list(drawn_letters)
+                ok = True
+                for letter in player_word:
+                    if letter in available_letters:
+                        available_letters.remove(letter)
+                    else:
+                        ok = False
+                        break
+
+                if not ok:
+                    print(&#34;Mot proposé n&#39;est pas possible par rapport au tirage&#34;)
+                    score = 0
+                else:
+                    found = allowed_words_in_scrabble.get(player_word, False)
+                    if not found:
+                        print(&#34;Mot proposé n&#39;est pas dans le dictionnaire des mots autorisés&#34;)
+                        score = 0
+                    else:
+                        score = calculate_points(player_word)
+
+                total_score += score
+                print(&#34;Score pour ce mot: &#34;, score)
+                display_score(username, total_score)
+        elif total_drafts == &#34;N&#34;:
+            available_letters = list(scrabble_letters)
+            for _ in range(number_of_drafts):
+                if len(available_letters) &lt; 8:
+                    break
+
+                drawn_letters = []
+                for _ in range(8):
+                    letter = random.choice(available_letters)
+                    drawn_letters.append(letter)
+                    available_letters.remove(letter)
+
+                print(&#34;Voici votre tirage: &#34;, drawn_letters)
+                print(&#34;Votre Mot SVP ? :&#34;)
+                print(&#34;Vous pouvez quitter le jeu en insérant le mot: exit&#34;)
+                player_word = input(&#34;-&gt; &#34;).upper()
+
+                if player_word == &#34;EXIT&#34;:
+                    exit_message = text2art(&#34;Vous avez mis fin au jeu.&#34;)
+                    print(exit_message)
+                    break
+
+                ok = True
+                for letter in player_word:
+                    if letter in drawn_letters:
+                        drawn_letters.remove(letter)
+                    else:
+                        ok = False
+                        break
+
+                if not ok:
+                    print(&#34;Mot proposé n&#39;est pas possible par rapport au tirage&#34;)
+                    score = 0
+                else:
+                    found = allowed_words_in_scrabble.get(player_word, False)
+                    if not found:
+                        print(&#34;Mot proposé n&#39;est pas dans le dictionnaire des mots autorisés&#34;)
+                        score = 0
+                    else:
+                        score = calculate_points(player_word)
+
+                total_score += score
+                print(&#34;Score pour ce mot: &#34;, score)
+                display_score(username, total_score)
+
+        scores[username] = total_score
+
+    winner = max(scores, key=scores.get)
+    print(f&#34;Le gagnant est {winner} avec un score de {scores[winner]} points !&#34;)
+
+
+if __name__ == &#34;__main__&#34;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="scrabble.scrabble.calculate_points"><code class="name flex">
+<span>def <span class="ident">calculate_points</span></span>(<span>player_word)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the number of points for a player's word.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>player_word</code></strong> :&ensp;<code>str</code></dt>
+<dd>The word submitted by the player.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>The number of points for the word.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_points(player_word):
+    &#34;&#34;&#34;Calculate the number of points for a player&#39;s word.
+
+    Args:
+        player_word (str): The word submitted by the player.
+
+    Returns:
+        int: The number of points for the word.
+    &#34;&#34;&#34;
+    points_per_letter = {
+        &#34;a&#34;: 1, &#34;b&#34;: 3, &#34;c&#34;: 3, &#34;d&#34;: 2, &#34;e&#34;: 1, &#34;f&#34;: 4, &#34;g&#34;: 2, &#34;h&#34;: 4, &#34;i&#34;: 1, &#34;j&#34;: 8,
+        &#34;k&#34;: 10, &#34;l&#34;: 1, &#34;m&#34;: 2, &#34;n&#34;: 1, &#34;o&#34;: 1, &#34;p&#34;: 3, &#34;q&#34;: 8, &#34;r&#34;: 1, &#34;s&#34;: 1, &#34;t&#34;: 1,
+        &#34;u&#34;: 1, &#34;v&#34;: 4, &#34;w&#34;: 10, &#34;x&#34;: 10, &#34;y&#34;: 10, &#34;z&#34;: 10
+    }
+    score = 0
+    for letter in player_word:
+        score += points_per_letter.get(letter.lower(), 0)
+    return score</code></pre>
+</details>
+</dd>
+<dt id="scrabble.scrabble.display_score"><code class="name flex">
+<span>def <span class="ident">display_score</span></span>(<span>player, total_score)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Display the score of a player in ASCII art.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>player</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the player.</dd>
+<dt><strong><code>total_score</code></strong> :&ensp;<code>int</code></dt>
+<dd>The total score of the player.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def display_score(player, total_score):
+    &#34;&#34;&#34;Display the score of a player in ASCII art.
+
+    Args:
+        player (str): The name of the player.
+        total_score (int): The total score of the player.
+    &#34;&#34;&#34;
+    ascii_art = text2art(f&#34;Score de {player}:&#34;)
+    print(ascii_art)
+    ascii_art = text2art(str(total_score), font=&#34;block&#34;, chr_ignore=True)
+    print(ascii_art)</code></pre>
+</details>
+</dd>
+<dt id="scrabble.scrabble.game_message"><code class="name flex">
+<span>def <span class="ident">game_message</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Display the game message in ASCII art.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def game_message():
+    &#34;&#34;&#34;Display the game message in ASCII art.&#34;&#34;&#34;
+    ascii_art = text2art(&#34;SCRABBLE&#34;)
+    print(ascii_art)
+    ascii_art = text2art(&#34;Le Jeu&#34;, font=&#34;block&#34;, chr_ignore=True)
+    print(ascii_art)</code></pre>
+</details>
+</dd>
+<dt id="scrabble.scrabble.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Main function of the program.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    &#34;&#34;&#34;Main function of the program.&#34;&#34;&#34;
+    game_message()
+
+    allowed_words_in_scrabble = show_words_scrabble()
+    print(&#34;Dictionnaire des mots autorisés de 8 lettres max:&#34;, len(allowed_words_in_scrabble))
+
+    scrabble_letters = scrabble_letters_generator()
+
+    print(&#34;Combien de joueurs vont jouer ? (1 ou plus)&#34;)
+    while True:
+        try:
+            num_players = int(input(&#34;-&gt; &#34;))
+            if num_players &gt;= 1:
+                break
+            else:
+                print(&#34;Veuillez saisir un nombre supérieur ou égal à 1.&#34;)
+        except ValueError:
+            print(&#34;Entrée invalide. Veuillez saisir un nombre.&#34;)
+
+    players = []
+    for i in range(num_players):
+        player = input(f&#34;Nom du joueur {i + 1}: &#34;)
+        players.append(player)
+
+    scores = {}
+
+    for player in players:
+        user_input = play_game(player)
+        if user_input is None:
+            return
+
+        username, number_of_drafts, total_drafts = user_input
+
+        total_score = 0
+        score = 0
+
+        if total_drafts == &#34;Y&#34;:
+            for _ in range(number_of_drafts):
+                available_letters = list(scrabble_letters)
+                drawn_letters = []
+
+                for _ in range(8):
+                    letter = random.choice(available_letters)
+                    drawn_letters.append(letter)
+                    available_letters.remove(letter)
+
+                scrabble_letters = &#34;&#34;.join(available_letters)
+                print(&#34;Voici votre tirage: &#34;, drawn_letters)
+                print(&#34;Votre Mot SVP ? :&#34;)
+                print(&#34;Vous pouvez quitter le jeu en insérant le mot: exit&#34;)
+                player_word = input(&#34;-&gt; &#34;).upper()
+
+                if player_word == &#34;EXIT&#34;:
+                    exit_message = text2art(&#34;Vous avez mis fin au jeu.&#34;)
+                    print(exit_message)
+                    break
+
+                available_letters = list(drawn_letters)
+                ok = True
+                for letter in player_word:
+                    if letter in available_letters:
+                        available_letters.remove(letter)
+                    else:
+                        ok = False
+                        break
+
+                if not ok:
+                    print(&#34;Mot proposé n&#39;est pas possible par rapport au tirage&#34;)
+                    score = 0
+                else:
+                    found = allowed_words_in_scrabble.get(player_word, False)
+                    if not found:
+                        print(&#34;Mot proposé n&#39;est pas dans le dictionnaire des mots autorisés&#34;)
+                        score = 0
+                    else:
+                        score = calculate_points(player_word)
+
+                total_score += score
+                print(&#34;Score pour ce mot: &#34;, score)
+                display_score(username, total_score)
+        elif total_drafts == &#34;N&#34;:
+            available_letters = list(scrabble_letters)
+            for _ in range(number_of_drafts):
+                if len(available_letters) &lt; 8:
+                    break
+
+                drawn_letters = []
+                for _ in range(8):
+                    letter = random.choice(available_letters)
+                    drawn_letters.append(letter)
+                    available_letters.remove(letter)
+
+                print(&#34;Voici votre tirage: &#34;, drawn_letters)
+                print(&#34;Votre Mot SVP ? :&#34;)
+                print(&#34;Vous pouvez quitter le jeu en insérant le mot: exit&#34;)
+                player_word = input(&#34;-&gt; &#34;).upper()
+
+                if player_word == &#34;EXIT&#34;:
+                    exit_message = text2art(&#34;Vous avez mis fin au jeu.&#34;)
+                    print(exit_message)
+                    break
+
+                ok = True
+                for letter in player_word:
+                    if letter in drawn_letters:
+                        drawn_letters.remove(letter)
+                    else:
+                        ok = False
+                        break
+
+                if not ok:
+                    print(&#34;Mot proposé n&#39;est pas possible par rapport au tirage&#34;)
+                    score = 0
+                else:
+                    found = allowed_words_in_scrabble.get(player_word, False)
+                    if not found:
+                        print(&#34;Mot proposé n&#39;est pas dans le dictionnaire des mots autorisés&#34;)
+                        score = 0
+                    else:
+                        score = calculate_points(player_word)
+
+                total_score += score
+                print(&#34;Score pour ce mot: &#34;, score)
+                display_score(username, total_score)
+
+        scores[username] = total_score
+
+    winner = max(scores, key=scores.get)
+    print(f&#34;Le gagnant est {winner} avec un score de {scores[winner]} points !&#34;)</code></pre>
+</details>
+</dd>
+<dt id="scrabble.scrabble.play_game"><code class="name flex">
+<span>def <span class="ident">play_game</span></span>(<span>player=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Start the game by asking the number of players, their usernames, number of drafts, and letter options.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>player</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The username of the player. Defaults to None.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>A tuple containing the username, number of drafts, and letter option.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def play_game(player=None):
+    &#34;&#34;&#34;Start the game by asking the number of players, their usernames, number of drafts, and letter options.
+
+    Args:
+        player (str, optional): The username of the player. Defaults to None.
+
+    Returns:
+        tuple: A tuple containing the username, number of drafts, and letter option.
+    &#34;&#34;&#34;
+    if player is None:
+        print(&#34;Quel est votre nom: &#34;)
+        username = input(&#34;-&gt; &#34;)
+    else:
+        username = player
+
+    while True:
+        try:
+            print(f&#34;{username}, Combien de tirages (5 à 15):&#34;)
+            number_of_drafts = int(input(&#34;-&gt; &#34;))
+            if 5 &lt;= number_of_drafts &lt;= 15:
+                break
+            else:
+                print(&#34;Le nombre de tirages doit être compris entre 5 et 15. Réessayez.&#34;)
+        except ValueError:
+            print(&#34;Entrée invalide. Veuillez saisir un nombre entre 5 et 15.&#34;)
+
+    while True:
+        try:
+            print(&#34;Tirage à chaque fois de 8 lettres (Y/N) ?: &#34;)
+            total_drafts = input(&#34;-&gt; &#34;).upper()
+            if total_drafts == &#34;Y&#34; or total_drafts == &#34;N&#34;:
+                break
+            else:
+                print(&#34;Répondez par &#39;Y&#39; pour oui ou &#39;N&#39; pour non. Réessayez.&#34;)
+        except ValueError:
+            print(&#34;Entrée invalide. Veuillez saisir &#39;Y&#39; pour oui ou &#39;N&#39; pour non.&#34;)
+
+    if total_drafts == &#34;EXIT&#34;:
+        print(&#34;You have exited the game.&#34;)
+        return None
+
+    return username, number_of_drafts, total_drafts</code></pre>
+</details>
+</dd>
+<dt id="scrabble.scrabble.scrabble_letters_generator"><code class="name flex">
+<span>def <span class="ident">scrabble_letters_generator</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generate the number of occurrences of letters in Scrabble.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A string containing all the letters in Scrabble.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def scrabble_letters_generator():
+    &#34;&#34;&#34;Generate the number of occurrences of letters in Scrabble.
+
+    Returns:
+        str: A string containing all the letters in Scrabble.
+    &#34;&#34;&#34;
+    letters_occurrences = {
+        &#34;A&#34;: 9, &#34;B&#34;: 2, &#34;C&#34;: 2, &#34;D&#34;: 3, &#34;E&#34;: 15, &#34;F&#34;: 2, &#34;G&#34;: 2, &#34;H&#34;: 2,
+        &#34;I&#34;: 8, &#34;J&#34;: 1, &#34;K&#34;: 1, &#34;L&#34;: 5, &#34;M&#34;: 3, &#34;N&#34;: 6, &#34;O&#34;: 6, &#34;P&#34;: 2,
+        &#34;Q&#34;: 1, &#34;R&#34;: 6, &#34;S&#34;: 6, &#34;T&#34;: 6, &#34;U&#34;: 6, &#34;V&#34;: 2, &#34;W&#34;: 1, &#34;X&#34;: 1,
+        &#34;Y&#34;: 1, &#34;Z&#34;: 1
+    }
+    scrabble_letters = &#34;&#34;
+    for letter, letter_value in letters_occurrences.items():
+        for _ in range(letter_value):
+            scrabble_letters += letter
+    return scrabble_letters</code></pre>
+</details>
+</dd>
+<dt id="scrabble.scrabble.show_words_scrabble"><code class="name flex">
+<span>def <span class="ident">show_words_scrabble</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sort and return the allowed words in Scrabble from a word list file.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary containing the allowed words in Scrabble.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show_words_scrabble():
+    &#34;&#34;&#34;Sort and return the allowed words in Scrabble from a word list file.
+
+    Returns:
+        dict: A dictionary containing the allowed words in Scrabble.
+    &#34;&#34;&#34;
+    with open(FRENCH_WORD_LIST, &#34;r&#34;) as file:
+        allowed_words_in_scrabble = {}
+        for line in file:
+            word = line.strip()
+            if len(word) &lt; 9:
+                allowed_words_in_scrabble[word] = True
+    return allowed_words_in_scrabble</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="scrabble" href="index.html">scrabble</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="scrabble.scrabble.calculate_points" href="#scrabble.scrabble.calculate_points">calculate_points</a></code></li>
+<li><code><a title="scrabble.scrabble.display_score" href="#scrabble.scrabble.display_score">display_score</a></code></li>
+<li><code><a title="scrabble.scrabble.game_message" href="#scrabble.scrabble.game_message">game_message</a></code></li>
+<li><code><a title="scrabble.scrabble.main" href="#scrabble.scrabble.main">main</a></code></li>
+<li><code><a title="scrabble.scrabble.play_game" href="#scrabble.scrabble.play_game">play_game</a></code></li>
+<li><code><a title="scrabble.scrabble.scrabble_letters_generator" href="#scrabble.scrabble.scrabble_letters_generator">scrabble_letters_generator</a></code></li>
+<li><code><a title="scrabble.scrabble.show_words_scrabble" href="#scrabble.scrabble.show_words_scrabble">show_words_scrabble</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
